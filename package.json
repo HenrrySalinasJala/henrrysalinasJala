@@ -1,0 +1,20 @@
+{
+  "name": "avantica",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "testcafe chrome src/tests/**/*.js"
+  },
+  "keywords": [
+    "testcafe",
+    "sample"
+  ],
+  "author": "henrry salinas",
+  "license": "ISC",
+  "devDependencies": {
+    "gulp": "^4.0.2",
+    "gulp-testcafe": "^1.0.1",
+    "testcafe": "^1.8.3"
+  }
+}
