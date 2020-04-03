@@ -1,2 +1,2 @@
-# henrrysalinasJala
-TestCafe sample project
+# Test Cafe Sample automation project
+TestCafe sample project integrated with gulp
