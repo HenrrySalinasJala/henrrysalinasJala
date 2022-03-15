@@ -26,6 +26,7 @@
     "gulp-testcafe": "^1.1.0"
   },
   "dependencies": {
+    "faker": "^5.5.3",
     "testcafe": "^1.18.4"
   }
 }

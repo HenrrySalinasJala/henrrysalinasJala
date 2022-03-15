@@ -53,5 +53,6 @@ module.exports = {
     'handle-callback-err': 'warn',
     quotes: 'warn',
     semi: ['error', 'never'],
+    'class-methods-use-this': 0,
   },
-};
+}
