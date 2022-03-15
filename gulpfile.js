@@ -1,11 +1,14 @@
 const gulp = require('gulp')
 const testcafe = require('gulp-testcafe')
-const fs = require('fs')
+const minimist = require('minimist')
+
+const args = minimist(process.argv.slice(2))
 const path = require('path')
 
 const filePathSettings = path.join(__dirname, '/screenshots/')
 const screenshotPattern = '${DATE}_${TIME}/${BROWSER}-${BROWSER_VERSION}'
   + '/${FIXTURE}/test-${TEST}/${QUARANTINE_ATTEMPT}/${FILE_INDEX}.png'
+const browserParameter = args.browser
 
 const screenshots = {
   path: filePathSettings,
@@ -30,13 +33,16 @@ const defaultExecutionConfig = {
   selectorTimeout: 20000,
 }
 
-gulp.task('default', () => gulp.src('src/tests/**/*.js')
-  .pipe(testcafe({ browsers: ['chrome', 'firefox'] })))
+function getTestBrowser() {
+  const defaultBrowser = 'chrome'
+  if (browserParameter !== undefined) {
+    return browserParameter
+  }
 
-gulp.task('burger', () => gulp.src('src/tests/burgerbuilderTest.js')
-  .pipe(testcafe({ browsers: ['chrome'], reporter: [{ name: 'spec' }, { name: 'json', output: 'reports/report.json' }] })))
+  return defaultBrowser
+}
 
 gulp.task('test', () => gulp.src('src/tests/business.aa.com/test_join_now.js')
   .pipe(testcafe({
-    ...defaultExecutionConfig, browsers: ['firefox'], reporter: [{ name: 'spec' }],
+    ...defaultExecutionConfig, browsers: [getTestBrowser()], reporter: [{ name: 'spec' }],
   })))
