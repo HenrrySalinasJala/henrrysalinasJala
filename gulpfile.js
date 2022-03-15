@@ -27,6 +27,7 @@ const defaultExecutionConfig = {
   browserInitTimeout: 600000,
   disablePageCaching: true,
   hostname: 'localhost',
+  selectorTimeout: 20000,
 }
 
 gulp.task('default', () => gulp.src('src/tests/**/*.js')
@@ -37,5 +38,5 @@ gulp.task('burger', () => gulp.src('src/tests/burgerbuilderTest.js')
 
 gulp.task('test', () => gulp.src('src/tests/business.aa.com/test_join_now.js')
   .pipe(testcafe({
-    ...defaultExecutionConfig, selectorTimeout: 15000, browsers: ['firefox'], reporter: [{ name: 'spec' }],
+    ...defaultExecutionConfig, browsers: ['firefox'], reporter: [{ name: 'spec' }],
   })))

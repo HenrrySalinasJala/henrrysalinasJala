@@ -27,6 +27,7 @@
   },
   "dependencies": {
     "faker": "^5.5.3",
+    "lodash": "^4.17.21",
     "testcafe": "^1.18.4"
   }
 }

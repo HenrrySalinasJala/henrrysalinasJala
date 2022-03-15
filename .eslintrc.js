@@ -32,7 +32,7 @@ module.exports = {
       'lodash',
     ]],
     'max-len': [1, 120, 4],
-    'max-statements': [1, 20],
+    'max-statements': [1, 30],
     'max-depth': 1,
     'no-case-declarations': 0,
     'no-cond-assign': 1,
