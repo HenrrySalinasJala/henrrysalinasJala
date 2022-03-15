@@ -2,8 +2,9 @@ import { Selector } from 'testcafe'
 
 export default class HomePage {
   constructor() {
-    this.modal = Selector('.self-registration-container')
+    this.modal = Selector('.economy-title')
     this.nextButton = Selector('form button.enrollment')
+    this.registrationCompleteLabel = Selector('.selfenrollment-container .economy-subtitle')
   }
 
   getInputFieldFromFormByLabel(label) {

@@ -36,7 +36,7 @@ export default class HomePageActions {
     )
     await actions.typeText(this.selfRegistrationModal.getBusinessAddress(), faker.address.streetAddress())
     await actions.typeText(this.selfRegistrationModal.getAddress2(), faker.address.secondaryAddress())
-    const randomCountry = sample(['Bolivia', 'Peru', 'Paraguay'])
+    const randomCountry = sample(['Bolivia', 'Paraguay'])
     const countryDropDown = this.selfRegistrationModal.getCountry()
     const countryElement = this.selfRegistrationModal.getDropDownOption(countryDropDown, randomCountry)
     await actions
@@ -45,9 +45,20 @@ export default class HomePageActions {
     await actions.typeText(this.selfRegistrationModal.getState(), faker.address.state())
     await actions.typeText(this.selfRegistrationModal.getCity(), faker.address.city())
     await actions.typeText(this.selfRegistrationModal.getZip(), '0000')
+    await actions.click(this.selfRegistrationModal.nextButton)
+    await this.verifyJoinFormIsNOTDisplayed()
   }
 
   async verifyJoinFormIsDisplayed() {
     await actions.expect(this.selfRegistrationModal.modal.visible).ok()
+  }
+
+  async verifyJoinFormIsNOTDisplayed() {
+    await actions.expect(this.selfRegistrationModal.modal.visible).notOk({ timeout: 5000 })
+  }
+
+  async verifySuccessfulJoinAsTravelerMessage(expectedMessage) {
+    const actualMessage = await this.selfRegistrationModal.registrationCompleteLabel.innerText
+    await actions.expect(actualMessage).eql(expectedMessage, 'Unable to verify Traveler is joined properly')
   }
 }
