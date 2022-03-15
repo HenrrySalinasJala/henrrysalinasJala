@@ -22,8 +22,8 @@ fixture('Getting Started')
 test('Verify it is possible to join as traveler', async (t) => {
   await homePageActions.navigateToGetStartedPage()
   const companyEmail = faker.internet.email()
-  await getStartedActions.joinTravelerNow(companyEmail)
+  await getStartedActions.enrollTraveler(companyEmail)
   const expectedCreateLoginMessage = 'Please check your email to create your login.'
-  await getStartedActions.verifySuccessfulJoinAsTravelerMessage(expectedCreateLoginMessage)
+  await getStartedActions.verifySuccessfulEnrollmentAsTravelerMessage(expectedCreateLoginMessage)
   // TODO: needs to verify email
 })

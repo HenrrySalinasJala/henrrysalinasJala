@@ -1,6 +1,12 @@
 import { Selector } from 'testcafe'
 
-export default class HomePage {
+/**
+ * @class GetStartedPage
+ */
+export default class GetStartedPage {
+  /**
+   * initializes a new instance of {@link GetStartedPage}
+   */
   constructor() {
     this.joinNowButton = Selector('div a').withText('Join now')
   }
