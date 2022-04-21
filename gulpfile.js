@@ -1,20 +1,48 @@
-//const { src, dest } = require("gulp");
-const gulp = require('gulp');
-const testcafe = require('gulp-testcafe');
-const fs = require('fs');
+const gulp = require('gulp')
+const testcafe = require('gulp-testcafe')
+const minimist = require('minimist')
 
-gulp.task('default', () => {
-  return gulp.src('src/tests/**/*.js')
-    .pipe(testcafe({ browsers: ['chrome', 'firefox'] }));
-});
+const args = minimist(process.argv.slice(2))
+const path = require('path')
 
-gulp.task('burger', () => {
-  return gulp.src('src/tests/burgerbuilderTest.js')
-    .pipe(testcafe({ browsers: ['chrome'], reporter: [{ "name": "spec" }, { "name": "json", "output": "reports/report.json" }] }));
-});
+const filePathSettings = path.join(__dirname, '/screenshots/')
+const screenshotPattern = '${DATE}_${TIME}/${BROWSER}-${BROWSER_VERSION}'
+  + '/${FIXTURE}/test-${TEST}/${QUARANTINE_ATTEMPT}/${FILE_INDEX}.png'
+const browserParameter = args.browser
 
+const screenshots = {
+  path: filePathSettings,
+  takeOnFails: true,
+  pathPattern: screenshotPattern,
+  fullPage: true,
+}
 
-gulp.task('todo', () => {
-  return gulp.src('src/tests/todo.js')
-    .pipe(testcafe({ browsers: ['firefox'], reporter: [{ "name": "spec" }, { "name": "xunit", "output": fs.createWriteStream("reports/report.xml") }] }));
-});
+const defaultExecutionConfig = {
+  screenshots,
+  takeScreenshotsOnFail: true,
+  assertionTimeout: 7000,
+  pageLoadTimeout: 8000,
+  quarantineMode: false,
+  speed: 1,
+  skipJsErrors: true,
+  skipUncaughtErrors: true,
+  disableMultipleWindows: true,
+  browserInitTimeout: 600000,
+  disablePageCaching: true,
+  hostname: 'localhost',
+  selectorTimeout: 20000,
+}
+
+function getTestBrowser() {
+  const defaultBrowser = 'chrome'
+  if (browserParameter !== undefined) {
+    return browserParameter
+  }
+
+  return defaultBrowser
+}
+
+gulp.task('test', () => gulp.src('src/tests/business.aa.com/test_join_now.js')
+  .pipe(testcafe({
+    ...defaultExecutionConfig, browsers: [getTestBrowser()], reporter: [{ name: 'spec' }],
+  })))
