@@ -5,8 +5,8 @@
   "main": "index.js",
   "scripts": {
     "test": "testcafe chrome src/tests/**/*.js",
-    "lint": "npx eslint  src __tests__",
-    "lint:fix": "npx eslint  src __tests__ --fix"
+    "lint": "npx eslint  src",
+    "lint:fix": "npx eslint  src --fix"
   },
   "keywords": [
     "testcafe",
