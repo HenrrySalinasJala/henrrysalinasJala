@@ -1,0 +1,47 @@
+{
+    "version": "0.2.0",
+    "configurations": [
+      {
+        "type": "node",
+        "request": "launch",
+        "name": "Local Tests",
+        "program": "${workspaceRoot}/node_modules/jest/bin/jest.js",
+        "cwd": "${workspaceRoot}",
+        "args": ["--i", "--config", "jest.config.js"],
+        "console": "integratedTerminal",
+        "internalConsoleOptions": "neverOpen",
+        "env": {
+            "LOG_LEVEL": "debug",
+            "ENV": "local",
+        },
+      },
+      {
+        "type": "node",
+        "request": "launch",
+        "name": "QA Tests",
+        "program": "${workspaceRoot}/node_modules/jest/bin/jest.js",
+        "cwd": "${workspaceRoot}",
+        "args": ["${fileBasename}", "--i", "--config", "jest.config.js"],
+        "console": "integratedTerminal",
+        "internalConsoleOptions": "neverOpen",
+        "env": {
+            "LOG_LEVEL": "debug",
+            "ENV": "qa",
+        },
+      },
+      {
+        "type": "node",
+        "request": "launch",
+        "name": "Staging Tests",
+        "program": "${workspaceRoot}/node_modules/jest/bin/jest.js",
+        "cwd": "${workspaceRoot}",
+        "args": ["${fileBasename}", "--i", "--config", "jest.config.js"],
+        "console": "integratedTerminal",
+        "internalConsoleOptions": "neverOpen",
+        "env": {
+            "LOG_LEVEL": "debug",
+            "ENV": "staging",
+        },
+      },
+    ]
+  }
