@@ -16,8 +16,7 @@ const getStartedActions = new GetStartedPageActions()
   Validate for email text
  */
 
-fixture('Getting Started')
-  .page('http://business.aa.com/')
+fixture('Getting Started').page('http://business.aa.com/')
 
 test('Verify it is possible to join as traveler', async (t) => {
   await homePageActions.navigateToGetStartedPage()
