@@ -1,5 +1,5 @@
 import { t as actions } from 'testcafe'
-import HomePage from '../pages/home_page'
+import HomePage from '../pages/home.page'
 
 /**
  * @class HomePageActions
