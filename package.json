@@ -4,7 +4,9 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "testcafe chrome src/tests/**/*.js"
+    "test": "testcafe chrome src/tests/**/*.js",
+    "lint": "npx eslint  src __tests__",
+    "lint:fix": "npx eslint  src __tests__ --fix"
   },
   "keywords": [
     "testcafe",
