@@ -35,7 +35,7 @@
   "dependencies": {
     "faker": "^5.5.3",
     "lodash": "^4.17.21",
-    "minimist": "^1.2.5",
+    "minimist": "^1.2.6",
     "testcafe": "^1.18.4",
     "testcafe-reporter-junit": "^3.0.2"
   }
