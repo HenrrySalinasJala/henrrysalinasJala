@@ -14,7 +14,7 @@ const screenshots = {
   path: filePathSettings,
   takeOnFails: true,
   pathPattern: screenshotPattern,
-  fullPage: true,
+  fullPage: true
 }
 
 const defaultExecutionConfig = {
@@ -30,7 +30,7 @@ const defaultExecutionConfig = {
   browserInitTimeout: 600000,
   disablePageCaching: true,
   hostname: 'localhost',
-  selectorTimeout: 20000,
+  selectorTimeout: 20000
 }
 
 function getTestBrowser() {
@@ -44,5 +44,10 @@ function getTestBrowser() {
 
 gulp.task('test', () => gulp.src('src/tests/business.aa.com/test_join_now.js')
   .pipe(testcafe({
-    ...defaultExecutionConfig, browsers: [getTestBrowser()], reporter: [{ name: 'spec' }],
+    ...defaultExecutionConfig, 
+    browsers: [getTestBrowser()], 
+    reporter: [
+      { name: 'spec' }, 
+      { name: 'junit', output: `./reports/${Date.now()}.xml` }
+    ],
   })))
