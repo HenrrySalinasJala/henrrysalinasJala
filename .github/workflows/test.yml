@@ -1,4 +1,4 @@
-name: UI dummy test
+name: Report mikepenz dummy test
 
 on:
   workflow_dispatch:
