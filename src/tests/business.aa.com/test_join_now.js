@@ -1,6 +1,6 @@
 import faker from 'faker'
-import HomePageActions from '../../main/actions/home_page_actions'
-import GetStartedPageActions from '../../main/actions/get_started_page_actions'
+import HomePageActions from '../../main/actions/home.actions'
+import GetStartedPageActions from '../../main/actions/get_started.actions'
 
 const homePageActions = new HomePageActions()
 const getStartedActions = new GetStartedPageActions()
