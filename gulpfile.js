@@ -34,7 +34,7 @@ const defaultExecutionConfig = {
 }
 
 function getTestBrowser() {
-  const defaultBrowser = 'chrome'
+  const defaultBrowser = 'chrome:headless'
   if (browserParameter !== undefined) {
     return browserParameter
   }
