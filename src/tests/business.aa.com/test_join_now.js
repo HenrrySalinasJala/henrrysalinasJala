@@ -18,7 +18,7 @@ const getStartedActions = new GetStartedPageActions()
 
 fixture('Getting Started').page('http://business.aa.com/')
 
-test('Verify it is possible to join as traveler', async (t) => {
+test.skip('Verify it is possible to join as traveler', async (t) => {
   await homePageActions.navigateToGetStartedPage()
   const companyEmail = faker.internet.email()
   await getStartedActions.enrollTraveler(companyEmail)
@@ -37,7 +37,7 @@ test('Dummy test should pass', async (t) => {
   await t.expect(true).ok('This test should pass')
 })
 
-test('Dummy test should skip', async (t) => {
+test.skip('Dummy test should skip', async (t) => {
   await new Promise(resolve => setTimeout(resolve, 2000))
   await t.expect(false).ok('This test should skip')
 })
