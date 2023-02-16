@@ -1,4 +1,4 @@
-name: API test
+name: UI dummy test
 
 on:
   workflow_dispatch:
