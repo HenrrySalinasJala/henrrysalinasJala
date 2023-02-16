@@ -33,12 +33,18 @@ jobs:
 
       - name: Run Tests
         run: ENV=${{ github.event.inputs.testEnv }} LOG_LEVEL=${{ github.event.inputs.logLevel }} npx gulp test
-      
+
+      - name: Upload Screenshots
+        uses: actions/upload-artifact@v3
+        with:
+          name: screenshots
+          path: screenshots
+
       - name: Publish Test Report
         uses: dorny/test-reporter@v1
-        if: success() || failure()    # run this step even if previous step failed
+        if: success() || failure() # run this step even if previous step failed
         with:
-          name: Dummy Tests            # Name of the check run which will be created
-          path: "**/reports/*.xml"   # Path to test results
-          reporter: java-junit        # Format of test results
-   
+          name: Dummy Tests # Name of the check run which will be created
+          path: "**/reports/*.xml" # Path to test results
+          reporter: java-junit # Format of test results
+

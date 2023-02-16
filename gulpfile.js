@@ -42,7 +42,7 @@ function getTestBrowser() {
   return defaultBrowser
 }
 
-gulp.task('test', () => gulp.src('src/tests/business.aa.com/test_join_now.js')
+gulp.task('test', () => gulp.src('src/tests/**/*.js')
   .pipe(testcafe({
     ...defaultExecutionConfig, 
     browsers: [getTestBrowser()], 
