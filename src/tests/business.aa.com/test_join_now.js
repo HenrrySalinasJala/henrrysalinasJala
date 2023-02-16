@@ -26,3 +26,19 @@ test('Verify it is possible to join as traveler', async (t) => {
   await getStartedActions.verifySuccessfulEnrollmentAsTravelerMessage(expectedCreateLoginMessage)
   // TODO: needs to verify email
 })
+
+test('Dummy test should fail', async (t) => {
+  await new Promise(resolve => setTimeout(resolve, 1000))
+  await t.expect(false).ok('This test should fail')
+})
+
+test('Dummy test should pass', async (t) => {
+  await new Promise(resolve => setTimeout(resolve, 2000))
+  await t.expect(true).ok('This test should pass')
+})
+
+test('Dummy test should skip', async (t) => {
+  await new Promise(resolve => setTimeout(resolve, 2000))
+  await t.expect(false).ok('This test should skip')
+})
+
