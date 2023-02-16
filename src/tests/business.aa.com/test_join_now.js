@@ -29,37 +29,37 @@ test('Verify it is possible to join as traveler', async (t) => {
 })
 
 test('Dummy test should fail', async (t) => {
-  await new Promise(resolve => setTimeout(resolve, 500))
+  await new Promise(resolve => setTimeout(resolve, 100))
   await t.expect(false).ok('This test should fail')
 })
 
 test('Dummy test should pass', async (t) => {
-  await new Promise(resolve => setTimeout(resolve, 500))
+  await new Promise(resolve => setTimeout(resolve, 100))
   await t.expect(true).ok('This test should pass')
 })
 
 test.skip('Dummy test should skip', async (t) => {
-  await new Promise(resolve => setTimeout(resolve, 500))
+  await new Promise(resolve => setTimeout(resolve, 100))
   await t.expect(false).ok('This test should skip')
 })
 
 
 test('Dummy test 2 should pass', async (t) => {
-  await new Promise(resolve => setTimeout(resolve, 500))
+  await new Promise(resolve => setTimeout(resolve, 100))
   await t.expect(true).ok('This test should pass')
 })
 
 test('Dummy test 3 should pass', async (t) => {
-  await new Promise(resolve => setTimeout(resolve, 500))
+  await new Promise(resolve => setTimeout(resolve, 100))
   await t.expect(true).ok('This test should pass')
 })
 
 test('Dummy test 4 should pass', async (t) => {
-  await new Promise(resolve => setTimeout(resolve, 500))
+  await new Promise(resolve => setTimeout(resolve, 100))
   await t.expect(true).ok('This test should pass')
 })
 
 test('Dummy test 5 should pass', async (t) => {
-  await new Promise(resolve => setTimeout(resolve, 500))
+  await new Promise(resolve => setTimeout(resolve, 100))
   await t.expect(true).ok('This test should pass')
 })
