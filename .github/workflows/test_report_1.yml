@@ -45,4 +45,5 @@ jobs:
           report_paths: "**/reports/*.xml"
           detailed_summary: true
           follow_symlink: true
+          include_passed: true
           summary: "This is a summary check from gh action"
