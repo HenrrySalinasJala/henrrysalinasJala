@@ -19,12 +19,12 @@ const getStartedActions = new GetStartedPageActions()
 fixture('Dummy suite 1')
 
 
-test('Dummy test should fail', async (t) => {
+test.skip('Dummy test should fail', async (t) => {
   await new Promise(resolve => setTimeout(resolve, 100))
   await t.expect(false).ok('This test should fail')
 })
 
-test('Dummy test 1 should pass', async (t) => {
+test.skip('Dummy test 1 should pass', async (t) => {
   await new Promise(resolve => setTimeout(resolve, 100))
   await t.expect(true).ok('This test should pass')
 })
