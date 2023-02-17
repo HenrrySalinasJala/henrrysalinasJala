@@ -33,10 +33,22 @@ jobs:
 
       - name: Run Tests
         run: ENV=${{ github.event.inputs.testEnv }} LOG_LEVEL=${{ github.event.inputs.logLevel }} npx gulp test
-      - uses: actions/upload-artifact@v3
+
+      - name: Upload Screenshot Artifact
+        uses: actions/upload-artifact@v3
+        if: ${{ always() }}
         with:
           name: screenshots
-          path: screenshots
+          path: |
+            ${{ github.workspace }}/screenshots
+
+      - name: Upload XML report Artifact
+        uses: actions/upload-artifact@v3
+        if: ${{ always() }}
+        with:
+          name: report
+          path: |
+            ${{ github.workspace }}/reports/*.xml
 
       - name: Publish Test Report
         uses: mikepenz/action-junit-report@v3

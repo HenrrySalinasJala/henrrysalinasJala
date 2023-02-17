@@ -46,7 +46,7 @@ jobs:
         uses: actions/upload-artifact@v3
         if: ${{ always() }}
         with:
-          name: test-results
+          name: report
           path: |
             ${{ github.workspace }}/reports/*.xml
 
@@ -55,7 +55,6 @@ jobs:
         if: ${{ always() }}
         with:
           name: Dorny reporter Tests
-          artifact: test-results
           list-suites: "all"
           list-tests: "all"
           path: "**/reports/*.xml"
