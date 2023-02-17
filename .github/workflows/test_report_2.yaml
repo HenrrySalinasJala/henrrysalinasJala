@@ -35,7 +35,7 @@ jobs:
         run: ENV=${{ github.event.inputs.testEnv }} LOG_LEVEL=${{ github.event.inputs.logLevel }} npx gulp test
 
       - name: Upload Published Artifact
-        uses: actions/upload-artifact@v2
+        uses: actions/upload-artifact@v3
         with:
           name: screenshots
           path: |
