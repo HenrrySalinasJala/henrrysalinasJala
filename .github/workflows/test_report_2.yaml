@@ -34,7 +34,7 @@ jobs:
       - name: Run Tests
         run: ENV=${{ github.event.inputs.testEnv }} LOG_LEVEL=${{ github.event.inputs.logLevel }} npx gulp test
 
-      - name: Upload Published Artifact
+      - name: Upload Screenshot Artifact
         uses: actions/upload-artifact@v3
         if: ${{ always() }}
         with:
@@ -42,13 +42,21 @@ jobs:
           path: |
             ${{ github.workspace }}/screenshots
 
+      - name: Upload XML report Artifact
+        uses: actions/upload-artifact@v3
+        if: ${{ always() }}
+        with:
+          name: test-results
+          path: |
+            ${{ github.workspace }}/reports/*.xml
+
       - name: Publish Test Report
         uses: dorny/test-reporter@v1
-        if: success() || failure() # run this step even if previous step failed
+        if: ${{ always() }}
         with:
-          name: Dorny reporter Tests # Name of the check run which will be created
+          name: Dorny reporter Tests
+          artifact: test-results
           list-suites: "all"
           list-tests: "all"
-          path: "**/reports/*.xml" # Path to test results
-          reporter: java-junit # Format of test results
-
+          path: "**/reports/*.xml"
+          reporter: java-junit
