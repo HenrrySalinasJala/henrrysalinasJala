@@ -39,6 +39,8 @@ jobs:
         if: success() || failure() # run this step even if previous step failed
         with:
           name: Dorny reporter Tests # Name of the check run which will be created
+          list-suites: "all"
+          list-tests: "all"
           path: "**/reports/*.xml" # Path to test results
           reporter: java-junit # Format of test results
 
