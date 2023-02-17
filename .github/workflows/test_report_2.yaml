@@ -36,10 +36,11 @@ jobs:
 
       - name: Upload Published Artifact
         uses: actions/upload-artifact@v3
+        if: ${{ always() }}
         with:
           name: screenshots
           path: |
-            ./screenshots
+            ${{ github.workspace }}/screenshots
 
       - name: Publish Test Report
         uses: dorny/test-reporter@v1
